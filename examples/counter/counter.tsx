@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
-import { useInstance } from "../../src/core/context.js";
+import { useInternal } from "../../src/core/context.js";
 import { djsx, useModal } from "../../src/index.js";
 import { ModalSubmitInteraction } from "discord.js";
 
 // @jsxRuntime automatic
 
 export const Counter = () => {
-    const { instanceId } = useInstance();
+    const { instanceId } = useInternal();
     const openModal = useModal();
 
     const [count, setCount] = useState(0);
