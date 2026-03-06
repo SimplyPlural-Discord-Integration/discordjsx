@@ -1,8 +1,11 @@
 {
 	"name": "discord-jsx-renderer",
-	"version": "0.0.16",
+	"version": "0.0.17",
 	"description": "React for discord.js",
-	"author": "deniz.blue <deniz@deniz.blue>",
+	"author": "Powerbox1000",
+	"contributors": [
+		"deniz.blue <deniz@deniz.blue>"
+	],
 	"type": "module",
 	"files": [
 		"/dist"
@@ -11,24 +14,10 @@
 		".": "./src/index.ts",
 		"./internals": "./src/internals.ts"
 	},
-	"publishConfig": {
-		"main": "./dist/index.js",
-		"types": "./dist/index.d.ts",
-		"exports": {
-			".": "./dist/index.js",
-			"./internals": "./dist/internals.js"
-		}
-	},
 	"scripts": {
 		"prebuild": "node -p \"'export const VERSION = ' + JSON.stringify(require('./package.json').version) + ';'\" > src/version.ts",
 		"build": "tsc",
-		"publish:lib": "pnpm run build && pnpm publish",
-		"publish:beta": "pnpm run build && pnpm publish --tag beta",
-		"publish:dryrun": "pnpm run build && pnpm publish --dry-run",
-		"docs:typedoc": "typedoc",
-		"docs:dev": "vitepress dev docs",
-		"docs:build": "vitepress build docs",
-		"docs:preview": "vitepress preview docs"
+		"prepare": "npm run build"
 	},
 	"devDependencies": {
 		"@types/mime-types": "^2.1.4",
@@ -38,9 +27,7 @@
 		"dotenv": "^16.6.1",
 		"typedoc": "^0.28.15",
 		"typedoc-plugin-markdown": "^4.9.0",
-		"typescript": "5.8.3",
-		"vitepress": "^1.6.4",
-		"vitepress-plugin-group-icons": "^1.6.5"
+		"typescript": "5.8.3"
 	},
 	"peerDependencies": {
 		"discord.js": "^14.23.2",
@@ -61,26 +48,13 @@
 	],
 	"license": "GPL-3.0-only",
 	"bugs": {
-		"url": "https://github.com/deniz-blue/discordjsx/issues"
+		"url": "https://github.com/SimplyPlural-Discord-Integration/discordjsx/issues"
 	},
-	"homepage": "https://djsx.deniz.blue/",
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/deniz-blue/discordjsx.git"
+		"url": "git+https://github.com/SimplyPlural-Discord-Integration/discordjsx.git"
 	},
 	"engines": {
-		"node": ">=18"
-	},
-	"pnpm": {
-		"peerDependencyRules": {
-			"ignoreMissing": [
-				"@algolia/client-search",
-				"search-insights"
-			],
-			"allowedVersions": {
-				"@docsearch/react>react": "*",
-				"@docsearch/react>@types/react": "*"
-			}
-		}
+		"node": ">=25"
 	}
 }
